@@ -130,7 +130,6 @@ subnet_id = aws_subnet.public.id
 instance_type ="t2.micro"
 vpc_security_group_ids = [aws_security_group.sg_p.id]
 
-user_data = base64encode(file("userdata.sh"))
 
 tags = {
 Name = "public-server-1"
@@ -143,7 +142,7 @@ instance_type = "t2.micro"
 subnet_id = aws_subnet.private.id
 vpc_security_group_ids = [aws_security_group.sg_pv.id]
 key_name ="sk1"
-
+user_data = base64encode(file("userdata.sh"))
 
 tags ={
 Name ="private-server-1"
